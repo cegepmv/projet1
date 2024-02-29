@@ -10,6 +10,7 @@
 #include "../include/ads1115_rpi.h"
 
 #define ADS1115_ADDRESS 0x48 // Adresse I2C du ADS1115
+#define PORT
 
 int main() {
 
@@ -36,19 +37,19 @@ int main() {
     memset(&dest_addr, '0', sizeof(dest_addr));
     dest_addr.sin_family = AF_INET;
     dest_addr.sin_addr.s_addr = inet_addr("10.10.21.9");
-    dest_addr.sin_port = htons(9090);
+    dest_addr.sin_port = htons(PORT);
 
     // Créer la connexion
     connect(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
     
     // Envoyer le message 
     int dc;
-	while(1) {
-        	// Convertir valeur 0-3.3v à 0-255
-        	dc = readVoltage(0) / 3.3 * 255;
-        	printf("%d\n", dc);
-        	send(sock, &dc, sizeof(dc), 0);
-	} 
+    while(1) {
+	// Convertir valeur 0-3.3v à 0-255
+	dc = readVoltage(0) / 3.3 * 255;
+	printf("%d\n", dc);
+	send(sock, &dc, sizeof(dc), 0);
+    } 
 
     // Libérer les ressources
     gpioTerminate();
