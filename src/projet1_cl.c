@@ -44,11 +44,10 @@ int main() {
     // Envoyer le message 
     int dc;
 	while(1) {
-        // Convertir valeur 0-3.3v à 0-255
-        //dc = readVoltage(0) / 3.3 * 255;
-        dc = 220;
-		printf("%d\n", dc);
-        send(sock, &dc, sizeof(dc), 0);
+        	// Convertir valeur 0-3.3v à 0-255
+        	dc = readVoltage(0) / 3.3 * 255;
+        	printf("%d\n", dc);
+        	send(sock, &dc, sizeof(dc), 0);
 	} 
 
     // Libérer les ressources
