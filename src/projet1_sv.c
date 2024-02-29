@@ -10,6 +10,7 @@
 #include "../include/ads1115_rpi.h"
 
 #define LED1 17
+#define PORT 9090
 
 int main() {
 
@@ -35,7 +36,7 @@ int main() {
     memset(&address, 0, sizeof(address));
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(9090);
+    address.sin_port = htons(PORT);
 
     // Associer le socket à l'adresse de l'interface
     bind(socket_local, (struct sockaddr *)&address, sizeof(address));
