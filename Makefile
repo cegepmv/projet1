@@ -9,7 +9,7 @@ release: src/${NOM}.c
 	gcc ${SOURCES} ${FLAGS} -o ${OUTFILE}
 
 debug: src/${NOM}.c
-	gcc -g ${SOURCES} ${FLAGS} -o ${OUTFILE}
+	gcc -g ${SOURCES} ${FLAGS} 
 
 clean: 
 	rm ${OUTFILE} 
