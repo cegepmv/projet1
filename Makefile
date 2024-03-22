@@ -1,4 +1,4 @@
-NOM=projet1_sv
+NOM=projet1
 OUTFILE=${NOM}
 SOURCES=src/ads1115_rpi.c src/${NOM}.c
 FLAGS=-Wall -lpigpio
